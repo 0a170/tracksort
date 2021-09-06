@@ -1,12 +1,14 @@
+require('dotenv').config()
+
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = '143317084d1d41a888aca1d97b4397e2'; // Your client id
-var client_secret = 'ee88ba309be840bcb608f886b4daeabf'; // Your secret
-var redirect_uri = 'http://localhost:4444/callback'; // Your redirect uri
+var client_id = process.env.CLIENT_ID; // Your client id
+var client_secret = process.env.CLIENT_SECRET; // Your secret
+var redirect_uri = process.env.REDIRECT_URI; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters

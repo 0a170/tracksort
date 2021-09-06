@@ -2,6 +2,7 @@
 node_modules
 client/node_modules
 /dist
+.env
 
 # Log files
 client/npm-debug.log*
