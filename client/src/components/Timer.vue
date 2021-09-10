@@ -1,28 +1,53 @@
 <template>
-  <v-snackbar
-    v-model="counterFlag"
-    :timeout="-1"
-    top
-    left
-  >
-
-    <template v-slot:action="{ attrs }">
-      <v-btn
-        color="red"
-        text
+  <div>
+    <div class="d-flex d-sm-none">
+      <v-fab-transition>
+        <v-btn
+          v-show="counterFlag"
+          color="black"
+          dark
+          fixed
+          center
+          right
+          fab
+          elevation="0"
+        >
+          <div v-if="secondsLeft > 0" class="text-left">
+            <div color="red">{{ formattedTime }}</div>
+          </div>
+          <div v-else>
+           Stop!
+          </div>
+        </v-btn>
+      </v-fab-transition>
+    </div>
+    <div class="d-none d-sm-flex">
+      <v-snackbar
+        v-model="counterFlag"
+        :timeout="-1"
         top
         left
-        v-bind="attrs"
       >
-        <div v-if="secondsLeft > 0" class="text-left">
-          {{ formattedTime }}
-        </div>
-        <div v-else>
-          Time's Up!
-        </div>
-      </v-btn>
-    </template>
-  </v-snackbar>
+
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="red"
+            text
+            top
+            left
+            v-bind="attrs"
+          >
+            <div v-if="secondsLeft > 0" class="text-left">
+              {{ formattedTime }}
+            </div>
+            <div v-else>
+              Time's Up!
+            </div>
+          </v-btn>
+        </template>
+      </v-snackbar>
+    </div>
+  </div>
 </template>
 
 <script>
