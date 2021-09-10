@@ -2,6 +2,7 @@
   <div class="d-flex justify-center">
 
     <div v-if="this.albumTracks !== '' && this.albumTracks !== 'undefined'">
+
       <v-card
         max-width="600"
         class="mx-auto"
@@ -9,11 +10,25 @@
         <v-toolbar
           color="light-blue"
           dark
+          height="73px"
         >
-          <v-spacer></v-spacer>
-          <v-toolbar-title>{{ this.albumName }}</v-toolbar-title>
-
-          <v-spacer></v-spacer>
+          <v-row class="d-flex justify-space-around" align="center">
+            <v-avatar width="64" height="64" class="rounded">
+              <img
+                :src="this.albumIcon"
+              >
+            </v-avatar>
+            <v-btn icon>
+              <v-icon color="white lighten-1">mdi-information</v-icon>
+            </v-btn>
+            <v-btn
+              align="center"
+              color="success"
+              @click="getNextAlbum"
+            >
+              Next Album
+            </v-btn>
+          </v-row>
         </v-toolbar>
         <v-list
           subheader
@@ -24,35 +39,14 @@
               v-for="track in albumTracks"
               :key="track.track_number"
             >
-              <v-list-item-avatar>
-                <v-icon
-                  class="grey lighten-1"
-                  dark
-                >
-                  mdi-folder
-                </v-icon>
-              </v-list-item-avatar>
-
               <v-list-item-content>
                 <v-list-item-title v-text="track.name"></v-list-item-title>
               </v-list-item-content>
-
-              <v-list-item-action>
-                <v-btn icon>
-                  <v-icon color="grey lighten-1">mdi-information</v-icon>
-                </v-btn>
-              </v-list-item-action>
             </v-list-item>
           </draggable>
         </v-list>
       </v-card>
     </div>
-    <v-btn
-      color="primary"
-      @click="getNextAlbum"
-    >
-      Next Album
-    </v-btn>
   </div>
   
 </template>
@@ -69,6 +63,7 @@ export default {
     return {
       albumName: '',
       albumTracks: '',
+      albumIcon: '',
       currentAlbum: '',
       multiLine: true,
       expiredSnackbar: false,
@@ -88,6 +83,7 @@ export default {
 
             this.albumName = res.items[0].album.name
             this.albumTracks = this.shuffleTracks(res.items[0].album.tracks.items)
+            this.albumIcon = res.items[0].album.images[2].url
             this.$store.commit('updateAlbumCount')
           })
           .catch(e => {

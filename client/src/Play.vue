@@ -53,6 +53,7 @@ export default {
     getNewCreds() {
       axios.get('http://localhost:4444/refresh_token', { params: { refresh_token: localStorage.getItem('refreshToken') }})
         .then(res => {
+          // Store access_token and refresh_token
           this.$store.dispatch('setAccessToken', res.data.access_token)
           this.$store.dispatch('setRefreshToken', res.data.refresh_token)
           let tokenExpiresAt = new Date()

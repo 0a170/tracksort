@@ -2,37 +2,22 @@
 <div id="app">
   <v-app id="inspire">
     <v-app id="inspire">
-      <v-navigation-drawer
-        v-model="drawer"
-        app
-      >
-        <v-list dense>
-          <v-list-item link @click="login()">
-            <v-list-item-action>
-              <v-icon>mdi-arrow-right-bold-circle-outline</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Play</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-action>
-              <v-icon>mdi-email</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Contact</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-  
       <v-app-bar
         app
         color="indigo"
         dark
       >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>Play</v-toolbar-title>
+        <v-row justify="space-between">
+          <v-col class="col-md-2">
+            <v-toolbar-title>Tracksort</v-toolbar-title>
+          </v-col>
+          <v-col class="col-md-2 text-right">
+            <v-btn @click="login()" color="primary">  
+              Play
+              <v-icon>mdi-play</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-app-bar>
   
       <v-main>
