@@ -43,6 +43,7 @@
                 <v-list-item-title v-text="track.name"></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
+            <v-divider></v-divider>
           </draggable>
         </v-list>
       </v-card>
@@ -79,11 +80,13 @@ export default {
         let offset = this.$store.state.offset;
         await axios.get('http://localhost:4444/getAlbum', { params: { accessToken: localStorage.getItem('accessToken'), offset: offset}})
           .then(response => {
+            console.log(response)
             let res = JSON.parse(response.data.albums)
 
             this.albumName = res.items[0].album.name
             this.albumTracks = this.shuffleTracks(res.items[0].album.tracks.items)
             this.albumIcon = res.items[0].album.images[2].url
+            this.$store.commit('storeAlbumImage', res.items[0].album.images[0].url)
             this.$store.commit('updateAlbumCount')
           })
           .catch(e => {

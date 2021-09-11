@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     tokenExpiresAt: '',
     offset: 0,
     scores: [],
+    albumImages: [],
     albumCount: 0,
     dragDisabled: false,
   },
@@ -23,6 +24,9 @@ export const store = new Vuex.Store({
     },
     getExpirationDate(state) {
       return state.tokenExpiresAt
+    },
+    getAlbumImages (state) {
+      return state.albumImages
     }
   },
   mutations: {
@@ -41,6 +45,9 @@ export const store = new Vuex.Store({
       state.tokenExpiresAt = timestamp
       localStorage.setItem('tokenExpiresAt', timestamp)
       // localStorage.setItem('tokenExpiresAt', d.getTime())
+    },
+    storeAlbumImage (state, albumImage) {
+      state.albumImages.push(albumImage)
     },
     deleteToken (state) {
       state.accessToken = ''
