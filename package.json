@@ -4,7 +4,8 @@
   "description": "Spotify album track sorting game",
   "main": "app.js",
   "scripts": {
-    "test": "tracksort"
+    "test": "tracksort",
+    "start": "node app.js"
   },
   "author": "0a170",
   "license": "ISC",
