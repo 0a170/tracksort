@@ -157,5 +157,5 @@ app.get('/getAlbum', function(req, res) {
   });
 });
 
-console.log('Listening on 4444');
-app.listen(4444);
+console.log('Listening...');
+app.listen(process.env.PORT || 4444);
