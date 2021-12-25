@@ -6,7 +6,8 @@
     "watch": "vue-cli-service serve --watch --port 8081",
     "serve": "vue-cli-service serve --port 8081",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "npm run watch"
   },
   "dependencies": {
     "axios": "^0.19.2",
