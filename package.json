@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engine": "16.x",
   "scripts": {
     "watch": "vue-cli-service serve --watch --port 8081",
     "serve": "vue-cli-service serve --port 8081",
