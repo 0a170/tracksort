@@ -4,21 +4,24 @@
   "private": true,
   "engine": "16.x",
   "scripts": {
+    "watch": "vue-cli-service serve --watch --port 8081",
     "serve": "vue-cli-service serve --port 8081",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run serve"
+    "start": "npm run watch"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "exec-sh": "^0.4.0",
     "sortablejs": "^1.14.0",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.3.4",
     "vuedraggable": "^2.24.1",
     "vuetify": "^2.6.1",
-    "vuex": "^3.6.0"
+    "vuex": "^3.6.0",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.0",
