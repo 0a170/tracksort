@@ -8,6 +8,7 @@
     "serve": "vue-cli-service serve --port 8081",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "postinstall": "npm run build",
     "start": "npm run serve"
   },
   "dependencies": {
