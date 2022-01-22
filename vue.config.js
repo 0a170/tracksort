@@ -3,4 +3,5 @@ module.exports = {
     "vuetify"
   ],
   runtimeCompiler: true,
+  disableHostCheck: true
 }
