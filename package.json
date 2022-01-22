@@ -5,7 +5,7 @@
   "engine": "16.x",
   "scripts": {
     "watch": "vue-cli-service serve --watch --port 8081",
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --host https://tracksort-frontend.herokuapp.com/",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "postinstall": "npm run build",
