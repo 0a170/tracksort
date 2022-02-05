@@ -78,7 +78,7 @@ export default {
         this.$router.push({name: 'score'})
       } else {
         let offset = this.$store.state.offset;
-        await axios.get('http://localhost:4444/getAlbum', { params: { accessToken: localStorage.getItem('accessToken'), offset: offset}})
+        await axios.get('https://tracksort-backend.herokuapp.com/getAlbum', { params: { accessToken: localStorage.getItem('accessToken'), offset: offset}})
           .then(response => {
             console.log(response)
             let res = JSON.parse(response.data.albums)

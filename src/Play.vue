@@ -97,7 +97,7 @@ export default {
         refreshToken = localStorage.getItem('refreshToken')
       }
       console.log('refreshToken is ' + this.$route.query.refresh_token)
-      axios.get('http://localhost:4444/refresh_token', { params: { refresh_token: refreshToken }})
+      axios.get('https://tracksort-backend.herokuapp.com/refresh_token', { params: { refresh_token: refreshToken }})
         .then(res => {
           // Store access_token and refresh_token
           localStorage.setItem('accessToken', res.data.access_token)

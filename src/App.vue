@@ -54,7 +54,7 @@ export default {
   }),
   methods: {
     login() {
-      axios.get('http://localhost:4444/login')
+      axios.get('https://tracksort-backend.herokuapp.com/login')
         .then(response => {
           console.log(response)
           //localStorage.access_token = 
